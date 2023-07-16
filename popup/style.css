@@ -1,0 +1,149 @@
+:root {
+
+    --primary-1: #F44336;
+    --primary-2: #1E88E5;
+    --primary-3: #FDD835;
+
+    --border: #CDD9ED;
+    --border-hover: #99A3BA;
+    --text-color: #6C7486;
+    --text-color-headline: #3F4656;
+
+    --shadow: rgba(22, 30, 50, .04);
+
+}
+
+body {
+    padding: 0 10px 1rem;
+    background-color: #082032;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    margin-bottom: 1rem;
+}
+
+#title {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.sia {
+    color: var(--primary-3);
+}
+
+.tutorial {
+    display: block;
+    font-size: 18px;
+    color: var(--primary-3);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.label {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: .5rem;
+}
+
+.form-field {
+    --color: var(--primary-1);
+    outline: none;
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    line-height: 22px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+    border-radius: 6px;
+    transition: border .3s ease;
+}
+
+.form-field::placeholder {
+    color: var(--border-hover);
+}
+
+.form-field:focus {
+    outline: none;
+    border-color: var(--color);
+}
+
+#saran {
+    width: 300px;
+    resize: vertical;
+    height: 100px;
+    font-size: 16px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.rating-wrapper {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.radio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+#rating {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    
+}
+
+.label-rating {
+    font-size: 16px;
+}
+
+.info {
+    display: none;
+    color: red;
+    font-size: 16px;
+    text-align: center;
+}
+
+#run {
+    background-color: white;
+    border: none;
+    padding: 8px 30px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 300;
+}
+
+#run:hover {
+    background-color: #1E88E5;
+    color: white;
+}
+
+.owner {
+    font-size: .8rem;
+    text-align: center;
+}
+
+.owner-link {
+    font-size: .8rem;
+    color: var(--primary-3);
+}
