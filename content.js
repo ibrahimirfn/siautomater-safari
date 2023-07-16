@@ -7,8 +7,8 @@
 
             for (const [index, link] of links.entries()) {
                 if (link.status != 'Sudah Isi') {
-                    sendResponse({ links, linkID: 26 })
-                    window.location.href = links[26].link
+                    sendResponse({ links, linkID: index })
+                    window.location.href = links[index].link
                     break
                 }
             }
