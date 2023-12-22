@@ -1,55 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIAutomater</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-    <h1 id="title"><span class="sia">SIA</span>utomater</h1>
-    <a href="../welcome/index.html" target="_blank" class="tutorial">Tutorial</a>
+  <body>
+    <div class="container header">
+      <img src="../images/icon128.png" alt="" width="50px" />
+      <h1 id="title"><span class="sia">SIA</span>utomater</h1>
+      <!-- <a href="../welcome/index.html" target="_blank" class="tutorial"
+        >Tutorial</a
+      > -->
+    </div>
+
     <div class="wrapper">
-        <div class="container">
-            <label for="saran" class="label-saran label">Saran</label>
-            <textarea name="" id="saran">Semoga selalu memberikan yang terbaik</textarea>
-        </div>
-        <div class="container">
-            <label class="rating-title label">Rating</label>
+      <!-- Penilaian Dosen -->
+      <div class="container">
+        <label class="rating-title label">Penilaian Dosen</label>
+        <ol class="rating-container">
+          <!-- 1 -->
+          <li>
+            <label class="rating-subtitle" for="rating-1"
+              >Dosen menguasai materi matakuliah sesuai isi SAP</label
+            >
             <div class="rating-wrapper">
-                <label class="radio">
-                    <input type="radio" id="rating" name="r" value="1">
-                    <span class="label-rating">1</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" id="rating" name="r" value="2">
-                    <span class="label-rating">2</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" id="rating" name="r" value="3">
-                    <span class="label-rating">3</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" id="rating" name="r" value="4" checked>
-                    <span class="label-rating">4</span>
-                </label>
+              <label class="radio">
+                <input type="radio" name="rating-1" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-1" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-1" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-1" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
             </div>
-        </div>
+          </li>
+
+          <!-- 2 -->
+          <li>
+            <label class="rating-subtitle" for="rating-2"
+              >Dosen menyediakan buku teks, bahan ajar, hand out atau
+              sejenisnya</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-2" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-2" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-2" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-2" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 3 -->
+          <li>
+            <label class="rating-subtitle" for="rating-3"
+              >Dosen mengajarkan materi dengan metode yang efektif dengan
+              memberi contoh konkrit</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-3" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-3" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-3" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-3" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 4 -->
+          <li>
+            <label class="rating-subtitle" for="rating-4"
+              >Dosen sangat komunikatif dan mampu menciptakan suasana yang
+              menyenangkan</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-4" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-4" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-4" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-4" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 5 -->
+          <li>
+            <label class="rating-subtitle" for="rating-5"
+              >Dosen memperlihatkan sikap menghormati mahasiswa dan
+              mendorong/memotivasi mahasiswa</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-5" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-5" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-5" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-5" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 6 -->
+          <li>
+            <label class="rating-subtitle" for="rating-6"
+              >Dosen memberi penilaian yang objektif</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-6" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-6" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-6" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-6" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 7 -->
+          <li>
+            <label class="rating-subtitle" for="rating-7"
+              >Dosen selalu mengembalikan hasil tes / tugas dengan catatan /
+              komentar</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-7" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-7" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-7" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-7" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 8 -->
+          <li>
+            <label class="rating-subtitle" for="rating-8">
+              Dosen menyediakan waktu untuk mendiskusikan materi kuliah di luar
+              kelas</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-8" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-8" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-8" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-8" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 9 -->
+          <li>
+            <label class="rating-subtitle" for="rating-9"
+              >Dosen terampil menggunakan sarana teknologi modern dalam memberi
+              kuliah</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-9" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-9" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-9" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-9" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 10 -->
+          <li>
+            <label class="rating-subtitle" for="rating-10"
+              >Dosen memberikan pesan nilai moral dan etika selain tentang
+              materi matakuliah</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-10" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-10" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-10" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-10" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Penilaian Matakuliah dan Bahan Ajar -->
+      <div class="container">
+        <label class="rating-title label"
+          >Penilaian Matakuliah dan Bahan Ajar</label
+        >
+        <ol class="rating-container">
+          <!-- 11 -->
+          <li>
+            <label class="rating-subtitle" for="rating-11"
+              >Materi matakuliah telah sesuai dengan perkembangan IPTEKS
+              terbaru</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-11" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-11" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-11" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-11" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 12 -->
+          <li>
+            <label class="rating-subtitle" for="rating-12"
+              >Isi SAP sangat jelas dan membantu anda memahami matakuliah</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-12" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-12" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-12" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-12" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 13 -->
+          <li>
+            <label class="rating-subtitle" for="rating-13"
+              >Materi tugas tes, dan ujian sesuai dengan materi matakuliah dan
+              selaras dengan isi SAP</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-13" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-13" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-13" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-13" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 14 -->
+          <li>
+            <label class="rating-subtitle" for="rating-14"
+              >Materi bahan ajar mudah dipahami</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-14" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-14" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-14" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-14" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- 15 -->
+          <li>
+            <label class="rating-subtitle" for="rating-15"
+              >Materi bahan ajar memuat hasil penelitian dosen yang
+              bersangkutan</label
+            >
+            <div class="rating-wrapper">
+              <label class="radio">
+                <input type="radio" name="rating-15" value="1" />
+                <span class="label-rating">1</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-15" value="2" />
+                <span class="label-rating">2</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-15" value="3" />
+                <span class="label-rating">3</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating-15" value="4" checked />
+                <span class="label-rating">4</span>
+              </label>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="container">
+        <label for="saran" class="label-saran label">Saran</label>
+        <textarea name="" id="saran">
+Semoga selalu memberikan yang terbaik</textarea
+        >
+      </div>
+
+      <div class="container">
         <button id="run" type="button">Run</button>
         <div class="info">
-            <p>Sedang melakukan pengisian (Jangan klik apapun)</p>
+          <p>Sabar yaa... (Jangan klik apapun)</p>
+          <img
+            src="../gif/Bean Eater-1s-200px.gif"
+            alt=""
+            width="50px"
+            height="50px"
+          />
         </div>
+      </div>
     </div>
-    <script src=" script.js">
-    </script>
-    <p class="owner">Extension by <a class="owner-link" target="_blank" href="https://instagram.com/falll.hkm">Naufal
-            Hakim</a></p>
-</body>
-
+    <script src=" script.js"></script>
+    <p class="owner">
+      Built with ❤️ By
+      <a
+        class="owner-link"
+        target="_blank"
+        href="https://instagram.com/falll.hkm"
+        >Naufal Hakim</a
+      >
+    </p>
+  </body>
 </html>
