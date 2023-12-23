@@ -4,7 +4,7 @@
 
         if (command == 'initialization') {
             window.location.href = "https://sia.akademik.unsoed.ac.id/krskhskuis/index"
-            sendResponse("ok")
+            sendResponse(true)
         }
 
         if(command == "goto") {

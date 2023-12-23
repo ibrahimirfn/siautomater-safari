@@ -1,9 +1,21 @@
-let saran, ratings, stateLink = null, stateSemester = null, tab
+let saran, ratings, stateLink = null, stateSemester = null, tab, initSemesterState
 let semester = []
 let links = []
 const info = document.querySelector('.info')
 const run = document.querySelector('#run')
 let scrollDown = true
+
+const initSemester = async () => {
+    semester = await chrome.tabs.sendMessage(tab.id, {
+        command: 'get-semester'
+    })
+    
+    await chrome.tabs.sendMessage(tab.id, {
+        command: "goto",
+        href: semester[0]
+    })
+    stateSemester = 0
+}
 
 run.addEventListener('click', async function () {
     try {
@@ -11,20 +23,10 @@ run.addEventListener('click', async function () {
         ratings = Array.from(document.querySelectorAll('.rating-container input[type="radio"]:checked'), el => el.value)
         const dataTab = await chrome.tabs.query({ active: true, currentWindow: true });
         tab = dataTab[0]
-    
-        const test = await chrome.tabs.sendMessage(tab.id, {
+
+        initSemesterState = await chrome.tabs.sendMessage(tab.id, {
             command: 'initialization'
         })
-    
-        semester = await chrome.tabs.sendMessage(tab.id, {
-            command: 'get-semester'
-        })  
-        
-        await chrome.tabs.sendMessage(tab.id, {
-            command: "goto",
-            href: semester[0]
-        })
-        stateSemester = 0
     } catch (error) {
         console.log(error)
         info.style.display = "block"
@@ -42,6 +44,11 @@ chrome.tabs.onUpdated.addListener(async (tabId, change) => {
         if (scrollDown) {
             window.scrollTo(0, document.body.scrollHeight);
             scrollDown = false
+        }
+
+        if (initSemesterState) {
+            initSemester()
+            initSemesterState = false
         }
 
         if (stateSemester != null) {
@@ -124,7 +131,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, change) => {
             }
 
             if (stateLink == links.length && stateSemester == semester.length) {
-                info.textContent = "EZ BGT!!!"
+                info.textContent = "DONE, EZ BGT!!!"
                 run.textContent = "Run"
                 run.removeAttribute("disabled")
             }
