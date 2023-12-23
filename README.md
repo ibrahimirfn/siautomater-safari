@@ -4,7 +4,7 @@
 
 SIAutomater adalah chrome extension untuk melakukan pengisian kuisioner secara otomatis pada laman SIA UNSOED. Tool ini merupakan solusi bagi orang yang mager seperti creatornya. Jadi, harap digunakan dengan bijak dan jangan gegabah.
 
-Kalau kamu punya kritik/saran mengenai tool ini ataupun kamu dapet error yang gajelas, bisa kontak lewat instagram [@falll.hkm](https://instagram.com/fall.hkm)👋😊
+Kalau kamu punya kritik/saran mengenai tool ini ataupun kamu dapet error yang gajelas, bisa kontak lewat instagram [@falll.hkm](https://instagram.com/fall.hkm)👋😊 <br><br>
 
 ## ⚙️ Installation
 
