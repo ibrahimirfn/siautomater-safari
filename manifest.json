@@ -16,7 +16,9 @@
                 "content.js"
             ],
             "matches": [
-                "https://sia.akademik.unsoed.ac.id/krskhskuis/index*",
+                "https://sia.akademik.unsoed.ac.id/",
+                "https://sia.akademik.unsoed.ac.id/*",
+                "https://sia.akademik.unsoed.ac.id/krskhskuis/index/*",
                 "https://sia.akademik.unsoed.ac.id/kuispembelajaranmhs/*"
             ]
         }

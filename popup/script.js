@@ -1,23 +1,40 @@
-let saran, ratings, links, linkID
+let saran, ratings, stateLink = null, stateSemester = null, tab
+let semester = []
+let links = []
 const info = document.querySelector('.info')
 const run = document.querySelector('#run')
 let scrollDown = true
 
 run.addEventListener('click', async function () {
-    saran = document.querySelector('#saran').value
-    ratings = Array.from(document.querySelectorAll('.rating-container input[type="radio"]:checked'), el => el.value)
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-    const data = await chrome.tabs.sendMessage(tab.id, {
-        command: 'run-page-1'
-    });
-
-    links = data.links
-    linkID = data.linkID
+    try {
+        saran = document.querySelector('#saran').value
+        ratings = Array.from(document.querySelectorAll('.rating-container input[type="radio"]:checked'), el => el.value)
+        const dataTab = await chrome.tabs.query({ active: true, currentWindow: true });
+        tab = dataTab[0]
+    
+        const test = await chrome.tabs.sendMessage(tab.id, {
+            command: 'initialization'
+        })
+    
+        semester = await chrome.tabs.sendMessage(tab.id, {
+            command: 'get-semester'
+        })  
+        
+        await chrome.tabs.sendMessage(tab.id, {
+            command: "goto",
+            href: semester[0]
+        })
+        stateSemester = 0
+    } catch (error) {
+        console.log(error)
+        info.style.display = "block"
+        info.textContent = "Hayo Error: Coba reload webnya dulu, kalo bingung DM aja"
+    }
 })
 
-chrome.tabs.onUpdated.addListener((tabId, change) => {
+chrome.tabs.onUpdated.addListener(async (tabId, change) => {
     if (change.status == 'complete') {
+
         info.style.display = "block"
         run.textContent = "Running"
         run.setAttribute("disabled", true)
@@ -27,20 +44,90 @@ chrome.tabs.onUpdated.addListener((tabId, change) => {
             scrollDown = false
         }
 
-        if (linkID == links.length) {
-            info.style.display = "none"
-            run.textContent = "Run"
-            run.removeAttribute("disabled")
-        }
+        if (stateSemester != null) {
+            // cek isi array links setiap ganti page semester
+            if (links.length == 0) {
+                // ambil data links
+                links = await chrome.tabs.sendMessage(tab.id, {
+                    command: 'get-links'
+                });
 
-        if (linkID < links.length) {
-            linkID++
-            chrome.tabs.sendMessage(tabId, {
-                command: "run-page-2",
-                saran,
-                ratings,
-                nextLink: links[linkID]?.link,
-            })
+                // jika data array links ada, redirect ke page link awal
+                if (links.length != 0) {
+                    stateLink = links.length - 2
+
+                    await chrome.tabs.sendMessage(tab.id, {
+                        command: "goto",
+                        href: links[stateLink]
+                    })
+                } else { // jika datanya tidak ada, redirect ke page semester selanjutnya
+                    stateSemester++
+
+                    // jika sudah semester akhir, redirect ke page index
+                    if(stateSemester == semester.length) {
+                        await chrome.tabs.sendMessage(tab.id, {
+                            command: "goto",
+                            href: 'https://sia.akademik.unsoed.ac.id/krskhskuis/index'
+                        })
+                    } else { // jika belum semester akhir, redirect ke semester selanjutnya
+                        links = []
+
+                        await chrome.tabs.sendMessage(tab.id, {
+                            command: "goto",
+                            href: semester[stateSemester]
+                        })
+                    }
+
+                }
+
+                // berhenti disini
+                return
+            }
+
+            if (stateLink < links.length) {
+                // ngisi kuisioner
+                let ok = await chrome.tabs.sendMessage(tabId, {
+                    command: "filling",
+                    saran,
+                    ratings
+                })
+
+                // lanjut ke next link
+                stateLink++
+                
+                // jika sudah link terakhir, redirect ke next semester
+                if(stateLink == links.length) {
+                    stateSemester++
+
+                    // jika sudah semester akhir, redirect ke page index
+                    if(stateSemester == semester.length) {
+                        await chrome.tabs.sendMessage(tab.id, {
+                            command: "goto",
+                            href: 'https://sia.akademik.unsoed.ac.id/krskhskuis/index'
+                        })
+                    } else {
+                        // kalo belum, reset array links
+                        links = []
+
+                        // redirect ke next semester
+                        await chrome.tabs.sendMessage(tab.id, {
+                            command: "goto",
+                            href: semester[stateSemester]
+                        })
+                    }
+                } else { // kalo belum link terakhir, redirect ke next link
+                    let oks = await chrome.tabs.sendMessage(tab.id, {
+                        command: "goto",
+                        href: links[stateLink]
+                    })
+                }
+            }
+
+            if (stateLink == links.length && stateSemester == semester.length) {
+                info.textContent = "EZ BGT!!!"
+                run.textContent = "Run"
+                run.removeAttribute("disabled")
+            }
         }
     }
 })

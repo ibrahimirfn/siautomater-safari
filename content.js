@@ -1,18 +1,32 @@
 (() => {
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-        const { command, saran, ratings, nextLink } = message
+        const { command, saran, ratings, href } = message
 
-        if (command == 'run-page-1') {
+        if (command == 'initialization') {
+            window.location.href = "https://sia.akademik.unsoed.ac.id/krskhskuis/index"
+            sendResponse("ok")
+        }
+
+        if(command == "goto") {
+            window.location.href = href
+            sendResponse("ok")
+        }
+
+        if (command == "get-semester") {
+            const semester = Array.from(document.querySelectorAll('#w5 .card .kv-panel-before a.btn'), el => el.href)
+            sendResponse(semester)
+        }
+
+        if (command == 'get-links') {
             const links = Array.from(document.querySelectorAll('#w5-container tbody tr [data-col-seq="7"] div a.btn'), 
-                el => el.textContent != 'Sudah Isi' ? ({ link: el.href, status: el.textContent }) : null
+                el => el.textContent != 'Sudah Isi' ? el.href : null
             )
             .filter(link => link != null)
             
-            sendResponse({ links, linkID: 26 })
-            window.location.href = links[26].link
+            sendResponse(links)
         }
 
-        if (command == 'run-page-2') {
+        if (command == 'filling') {
             (async () => {
                 const ratingButtonsAll = Array.from(document.querySelectorAll(`.content table:nth-of-type(3) tbody input[type="radio"]`), el => el)
                 .reduce((prevValue, currentValue, index) => {
@@ -24,33 +38,30 @@
                     return prevValue
                 }, [])
 
-                console.log(ratingButtonsAll);
-
                 const ratingButtons = ratingButtonsAll.map((ratingButtons, index) => {
                     return ratingButtons.filter(ratingButton =>  {
                         return ratingButton.value == ratings[index]
                     })[0]
                 })
 
-                console.log(ratingButtons);
-
                 const saranEl = document.querySelector('#saran')
                 const tombolSelesai = document.querySelector('#tombolselesai')
 
-
                 for (const ratingButton of ratingButtons) {
                     ratingButton.click()
-                    await new Promise((resolve, reject) => setTimeout(resolve, 100));
+                    await new Promise((resolve, reject) => setTimeout(resolve, 300));
                 }
 
                 saranEl.value = saran
 
                 // tombolSelesai.click()
-
+                
                 await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-                window.location.href = nextLink || 'https://sia.akademik.unsoed.ac.id/krskhskuis/index'
+                sendResponse("ok")
             })()
         }
+
+        return true
 
     })
 })()
