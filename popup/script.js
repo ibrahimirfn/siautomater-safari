@@ -61,7 +61,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, change) => {
 
                 // jika data array links ada, redirect ke page link awal
                 if (links.length != 0) {
-                    stateLink = links.length - 2
+                    stateLink = 0
 
                     await chrome.tabs.sendMessage(tab.id, {
                         command: "goto",
