@@ -52,11 +52,21 @@ body {
 }
 
 .tutorial {
-  display: block;
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  width: fit-content;
+  margin: auto;
+  padding: 0;
+  font-size: 0.9rem;
   color: var(--primary-sia);
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.tutorial-text {
+  margin: 0;
 }
 
 .label {

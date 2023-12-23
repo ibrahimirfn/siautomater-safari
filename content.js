@@ -54,7 +54,7 @@
 
                 saranEl.value = saran
 
-                // tombolSelesai.click()
+                tombolSelesai.click()
                 
                 await new Promise((resolve, reject) => setTimeout(resolve, 1000));
                 sendResponse("ok")
