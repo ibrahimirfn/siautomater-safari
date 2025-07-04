@@ -36,16 +36,6 @@ Kalau kamu punya kritik/saran mengenai tool ini ataupun kamu dapet error yang ga
 
    <img src="/images/tutorial/installation/7.png" alt="Laman SIA" width="500">
 
-   **Note:**
-   
-   Perhatikan dalam memilih folder, karena biasanya folder hasil diekstrak memiliki sub folder lagi.
-
-   Jika kamu mengalami error seperti ini, maka kamu salah memilih folder
-
-   <img src="/images/tutorial/installation/8.png" alt="Laman SIA" width="500"><br><br>
-
-9. Selesai, kamu bisa langsung menggunakan SIAutomater untuk mengatasi ke-mageranmu dalam mengisi kuisioner😁 <br><br>
-
 ## 🚀 Usage
 
 1. Buka laman [SIA 5.0](https://sia.akademik.unsoed.ac.id/auth/login)
