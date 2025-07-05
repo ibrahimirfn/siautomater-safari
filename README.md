@@ -50,7 +50,7 @@ Kalau kamu punya kritik/saran mengenai tool ini ataupun kamu dapet error yang ga
 
    <img src="/images/tutorial/usage/3.png" alt="Laman SIA" width="500"><br><br>
 
-4. Klik extension SIAutomater yang sudah di install
+4. Klik extension SIAutomater yang sudah di install, dan pilih allow for this website
 
    <img src="/images/tutorial/usage/4.png" alt="Laman SIA" width="300"><br><br>
 
