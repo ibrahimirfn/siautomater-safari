@@ -32,7 +32,7 @@ Kalau kamu punya kritik/saran mengenai tool ini ataupun kamu dapet error yang ga
 
    <img src="/images/tutorial/installation/6.png" alt="Laman SIA" width="500"><br><br>
 
-7. Cari SIAutomater di Extensions, jika sudah ada selamat instalasi berhasil
+7. Cari SIAutomater di Extension lalu klik ***check bar***
 
    <img src="/images/tutorial/installation/7.png" alt="Laman SIA" width="500">
 
